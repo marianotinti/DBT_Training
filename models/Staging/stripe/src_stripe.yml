@@ -4,7 +4,7 @@ sources:
   - name: stripe
     database: dbt-tutorial
     schema: stripe
-
+    description: Raw payment methods and amounts
     tables:
       - name: payment
         loaded_at_field: _batched_at
