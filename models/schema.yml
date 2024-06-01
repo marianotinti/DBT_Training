@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: customers
-    description: One record per customer
+    description: One unique record per customer (row)
     columns:
       - name: customer_id
         description: Primary key
@@ -22,7 +22,7 @@ models:
           - not_null
 
   - name: stg_orders
-    description: This model cleans up order data
+    description: This model cleans up order data, one order per row
     columns:
       - name: order_id
         description: Primary key
@@ -30,6 +30,7 @@ models:
           - unique
           - not_null
       - name: status
+        description: "{{doc ('order_status')}}"
         tests:
           - accepted_values:
               values: ['placed', 'shipped', 'completed', 'return_pending', 'returned']
